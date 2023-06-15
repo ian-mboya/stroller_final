@@ -1,0 +1,50 @@
+name: stroller
+description: A new Flutter project.
+version: 1.0.0+1
+environment:
+  sdk: '>=2.16.0 <3.0.0'
+dependencies:
+  avatar_glow: ^2.0.2
+  cached_network_image: ^3.2.1
+  camera: ^0.10.0+4
+  connectivity_plus: ^3.0.2
+  firebase_auth: ^4.1.4
+  firebase_core: ^2.3.0
+  flutter:
+    sdk: flutter
+  flutter_svg: ^1.1.6
+  fluttertoast: ^8.0.8
+  get: ^4.6.5
+  google_ml_kit: ^0.3.0
+  google_mlkit_language_id: ^0.5.0
+  google_mlkit_object_detection: ^0.6.0
+  google_mlkit_text_recognition: ^0.5.0
+  google_mlkit_translation: ^0.5.0
+  google_sign_in: ^5.0.7
+  highlight_text: ^1.6.0
+  images_picker: ^1.2.11
+  intl: ^0.17.0
+  outline_gradient_button: ^2.0.0+1
+  permission_handler: ^10.0.0
+  shared_preferences: ^2.0.15
+  speech_to_text: ^6.1.0
+  translator: ^0.1.7
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+    - assets/detect.tflite
+    - assets/labelmap.txt
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/PoppinsSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/PoppinsRegular.ttf
+          weight: 400
+        - asset: assets/fonts/PoppinsItalic.ttf
+          weight: 400
