@@ -2,8 +2,9 @@ name: stroller
 description: A new Flutter project.
 version: 1.0.0+1
 environment:
-  sdk: '>=2.16.0 <3.0.0'
+  sdk: '>=2.17.0 <3.0.0'
 dependencies:
+  animate_do: ^3.0.2
   avatar_glow: ^2.0.2
   cached_network_image: ^3.2.1
   camera: ^0.10.0+4
@@ -13,6 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^1.1.6
+  flutter_tts: ^3.7.0
   fluttertoast: ^8.0.8
   get: ^4.6.5
   google_ml_kit: ^0.3.0
@@ -22,12 +24,13 @@ dependencies:
   google_mlkit_translation: ^0.5.0
   google_sign_in: ^5.0.7
   highlight_text: ^1.6.0
+  http: ^0.13.6
   images_picker: ^1.2.11
   intl: ^0.17.0
   outline_gradient_button: ^2.0.0+1
   permission_handler: ^10.0.0
   shared_preferences: ^2.0.15
-  speech_to_text: ^6.1.0
+  speech_to_text: ^6.3.0
   translator: ^0.1.7
 dev_dependencies:
   flutter_test:

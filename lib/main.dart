@@ -21,6 +21,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
       locale: Get.deviceLocale, //for setting localization strings
       fallbackLocale: Locale('en', 'US'),
       title: 'Stroller',
+
+      theme: ThemeData.light(useMaterial3: true),
       initialBinding: InitialBindings(),
 
       initialRoute: AppRoutes.initialRoute,

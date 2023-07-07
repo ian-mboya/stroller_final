@@ -84,8 +84,7 @@ class AppRoutes {
     ),
     GetPage(
       name: speechToTextScreen,
-      page: () =>
-          SpeechToTextScreen(highlights: {}, text: 'text', onPressed: _listen),
+      page: () => SpeechToTextScreen(),
       bindings: [
         SpeechToTextBinding(),
       ],
@@ -112,6 +111,4 @@ class AppRoutes {
       ],
     )
   ];
-
-  static get _listen => null;
 }

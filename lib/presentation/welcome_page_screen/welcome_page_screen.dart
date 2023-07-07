@@ -107,34 +107,41 @@ class WelcomePageScreen extends GetWidget<WelcomePageController> {
                                       AppStyle.txtPoppinsRegular22Black900))),
                       Align(
                           alignment: Alignment.center,
-                          child: Card(
-                              clipBehavior: Clip.antiAlias,
-                              elevation: 0,
-                              margin: getMargin(left: 21, top: 31, right: 21),
-                              color: ColorConstant.green500,
-                              shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                      width: getHorizontalSize(2.00)),
-                                  borderRadius:
-                                      BorderRadiusStyle.circleBorder76),
-                              child: Container(
-                                  height: getSize(152.00),
-                                  width: getSize(152.00),
-                                  decoration: AppDecoration.outline.copyWith(
+                          child: GestureDetector(
+                              onTap: () {
+                                onTapIcon();
+                              },
+                              child: Card(
+                                  clipBehavior: Clip.antiAlias,
+                                  elevation: 0,
+                                  margin:
+                                      getMargin(left: 21, top: 31, right: 21),
+                                  color: ColorConstant.green500,
+                                  shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                          width: getHorizontalSize(2.00)),
                                       borderRadius:
                                           BorderRadiusStyle.circleBorder76),
-                                  child: Stack(children: [
-                                    Align(
-                                        alignment: Alignment.center,
-                                        child: Padding(
-                                            padding: getPadding(all: 40),
-                                            child: CommonImageView(
-                                                svgPath:
-                                                    ImageConstant.imgMicrophone,
-                                                height: getVerticalSize(65.00),
-                                                width:
-                                                    getHorizontalSize(61.00))))
-                                  ])))),
+                                  child: Container(
+                                      height: getSize(152.00),
+                                      width: getSize(152.00),
+                                      decoration: AppDecoration.outline
+                                          .copyWith(
+                                              borderRadius: BorderRadiusStyle
+                                                  .circleBorder76),
+                                      child: Stack(children: [
+                                        Align(
+                                            alignment: Alignment.center,
+                                            child: Padding(
+                                                padding: getPadding(all: 40),
+                                                child: CommonImageView(
+                                                    svgPath: ImageConstant
+                                                        .imgMicrophone,
+                                                    height:
+                                                        getVerticalSize(65.00),
+                                                    width: getHorizontalSize(
+                                                        61.00))))
+                                      ]))))),
                       Align(
                           alignment: Alignment.center,
                           child: Padding(
@@ -162,6 +169,10 @@ class WelcomePageScreen extends GetWidget<WelcomePageController> {
 
   onTapObjectdetectio1() async {
     Get.toNamed(AppRoutes.cameraWindowScreen);
+  }
+
+  onTapIcon() async {
+    Get.toNamed(AppRoutes.speechToTextScreen);     
   }
 
   onTapImgCamera() async {
