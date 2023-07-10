@@ -15,7 +15,7 @@ class OpenAIService {
           'Authorization': 'Bearer $openAIAPIKey',
         },
         body: jsonEncode({
-          "model": "gpt-3.5-turbo",
+          "model": "gpt-3.5-turbo	",
           "messages": [
             {
               'role': 'user',

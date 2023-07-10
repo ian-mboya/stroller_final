@@ -2,7 +2,7 @@ name: stroller
 description: A new Flutter project.
 version: 1.0.0+1
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=2.19.5 <3.0.0'
 dependencies:
   animate_do: ^3.0.2
   avatar_glow: ^2.0.2
@@ -13,6 +13,7 @@ dependencies:
   firebase_core: ^2.3.0
   flutter:
     sdk: flutter
+  flutter_cache_manager: ^3.3.1
   flutter_svg: ^1.1.6
   flutter_tts: ^3.7.0
   fluttertoast: ^8.0.8
@@ -40,6 +41,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/sounds/
     - assets/detect.tflite
     - assets/labelmap.txt
   fonts:

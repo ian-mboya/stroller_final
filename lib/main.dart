@@ -16,7 +16,7 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]).then((value) {
     Logger.init(kReleaseMode ? LogMode.live : LogMode.debug);
-    runApp(MyApp());
+    runApp(const MyApp());
   });
 }
 

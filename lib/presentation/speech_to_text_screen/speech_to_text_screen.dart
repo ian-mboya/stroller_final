@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+
 //import 'package:stroller/presentation/speech_to_text_screen/controller/speech_to_text_controller.dart';
 import 'package:stroller/widgets/feature_box.dart';
 import 'package:stroller/theme/pallete.dart';
@@ -33,26 +34,42 @@ class _SpeechToTextScreenState extends State<SpeechToTextScreen> {
   }
 
   Future<void> initTextToSpeech() async {
+    if (!mounted) {
+      return;
+    }
     await flutterTts.setSharedInstance(true);
     setState(() {});
   }
 
   Future<void> initSpeechToText() async {
+    if (!mounted) {
+      return;
+    }
     await speechToText.initialize();
     setState(() {});
   }
 
   Future<void> startListening() async {
+    if (!mounted) {
+      return;
+    }
+
     await speechToText.listen(onResult: onSpeechResult);
     setState(() {});
   }
 
   Future<void> stopListening() async {
+    if (!mounted) {
+      return;
+    }
     await speechToText.stop();
     setState(() {});
   }
 
   void onSpeechResult(SpeechRecognitionResult result) {
+    if (!mounted) {
+      return;
+    }
     setState(() {
       lastWords = result.recognizedWords;
     });
