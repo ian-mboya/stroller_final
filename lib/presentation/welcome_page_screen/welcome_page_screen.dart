@@ -172,7 +172,7 @@ class WelcomePageScreen extends GetWidget<WelcomePageController> {
   }
 
   onTapIcon() async {
-    Get.offAndToNamed(AppRoutes.speechToTextScreen);
+    Get.toNamed(AppRoutes.speechToTextScreen);
   }
 
   onTapImgCamera() async {

@@ -242,10 +242,16 @@ class _SpeechToTextScreenState extends State<SpeechToTextScreen> {
               if (speech.contains('https')) {
                 generatedImageUrl = speech;
                 generatedContent = null;
+                if (!mounted) {
+                  return;
+                }
                 setState(() {});
               } else {
                 generatedImageUrl = null;
                 generatedContent = speech;
+                if (!mounted) {
+                  return;
+                }
                 setState(() {});
                 await systemSpeak(speech);
               }
