@@ -18,6 +18,7 @@ class SpeechToTextScreen extends StatefulWidget {
 
 class _SpeechToTextScreenState extends State<SpeechToTextScreen> {
   final speechToText = SpeechToText();
+  bool speechEnabled = false;
   final flutterTts = FlutterTts();
   String lastWords = '';
   final OpenAIService openAIService = OpenAIService();
@@ -33,43 +34,50 @@ class _SpeechToTextScreenState extends State<SpeechToTextScreen> {
     initTextToSpeech();
   }
 
+  @override
+  void setState(fn) {
+    if (mounted) super.setState(fn);
+  }
+
   Future<void> initTextToSpeech() async {
-    if (!mounted) {
-      return;
-    }
-    await flutterTts.setSharedInstance(true);
+    await flutterTts.setSilence(2);
+
+    await flutterTts.getEngines;
+
+    await flutterTts.getDefaultVoice;
+
+    await flutterTts.isLanguageInstalled("en-AU");
+
+    await flutterTts.areLanguagesInstalled(["en-AU", "en-US"]);
+
+    await flutterTts.setQueueMode(1);
+
+    await flutterTts.getMaxSpeechInputLength;
     setState(() {});
   }
 
   Future<void> initSpeechToText() async {
-    if (!mounted) {
-      return;
-    }
-    await speechToText.initialize();
+    speechEnabled = await speechToText.initialize();
     setState(() {});
   }
 
   Future<void> startListening() async {
-    if (!mounted) {
-      return;
-    }
-
-    await speechToText.listen(onResult: onSpeechResult);
+    await speechToText.listen(
+        onResult: onSpeechResult, listenFor: Duration(seconds: 10));
     setState(() {});
   }
 
   Future<void> stopListening() async {
-    if (!mounted) {
-      return;
-    }
     await speechToText.stop();
     setState(() {});
   }
 
+  void cancelListening() {
+    speechToText.cancel();
+    setState(() {});
+  }
+
   void onSpeechResult(SpeechRecognitionResult result) {
-    if (!mounted) {
-      return;
-    }
     setState(() {
       lastWords = result.recognizedWords;
     });
@@ -242,17 +250,11 @@ class _SpeechToTextScreenState extends State<SpeechToTextScreen> {
               if (speech.contains('https')) {
                 generatedImageUrl = speech;
                 generatedContent = null;
-                if (!mounted) {
-                  return;
-                }
-                setState(() {});
+                if (mounted) super.setState(() {});
               } else {
                 generatedImageUrl = null;
                 generatedContent = speech;
-                if (!mounted) {
-                  return;
-                }
-                setState(() {});
+                if (mounted) super.setState(() {});
                 await systemSpeak(speech);
               }
               await stopListening();
